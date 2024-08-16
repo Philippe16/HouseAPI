@@ -48,6 +48,12 @@
             <artifactId>quarkus-jdbc-postgresql</artifactId>
         </dependency>
 
+        <!-- Quarkus JDBC extension for MySQL -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-jdbc-mysql</artifactId>
+        </dependency>
+
         <!-- RESTEasy Reactive -->
         <dependency>
             <groupId>io.quarkus</groupId>

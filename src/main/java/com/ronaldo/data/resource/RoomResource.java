@@ -1,4 +1,4 @@
 package com.ronaldo.data.resource;
 
-public class HouseRoomLinkResource {
+public class RoomResource {
 }
