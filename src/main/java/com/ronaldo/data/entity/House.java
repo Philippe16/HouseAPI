@@ -1,5 +1,7 @@
 package com.ronaldo.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -8,96 +10,98 @@ public class House {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "HouseID")
+    private Integer HouseID;
 
-    @Column(nullable = false)
-    private String image;
+    @Column(name = "HouseImage")
+    private String HouseImage;
 
-    @Column(nullable = false)
-    private String address;
+    @Column(name = "Address")
+    private String Address;
 
-    @Column(nullable = false)
-    private String type;
+    @Column(name = "Type")
+    private String Type;
 
-    @Column(nullable = false)
-    private String city;
+    @Column(name = "City")
+    private String City;
 
-    @Column(nullable = false)
-    private String area;
+    @Column(name = "Area")
+    private String Area;
 
-    @Column(nullable = false)
-    private String floorspace;
+    @Column(name = "Floorspace")
+    private String Floorspace;
 
-    @Column(nullable = false)
-    private Integer price;
+    @Column(name = "Price")
+    private Integer Price;
 
-    @OneToMany(mappedBy = "house", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "house", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @JsonManagedReference
     private List<Room> rooms;
 
     // Getters and Setters
 
-    public Long getId() {
-        return id;
+    public Integer getHouseID() {
+        return HouseID;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setHouseID(Integer houseID) {
+        HouseID = houseID;
     }
 
-    public String getImage() {
-        return image;
+    public String getHouseImage() {
+        return HouseImage;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setHouseImage(String houseImage) {
+        HouseImage = houseImage;
     }
 
     public String getAddress() {
-        return address;
+        return Address;
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        Address = address;
     }
 
     public String getType() {
-        return type;
+        return Type;
     }
 
     public void setType(String type) {
-        this.type = type;
+        Type = type;
     }
 
     public String getCity() {
-        return city;
+        return City;
     }
 
     public void setCity(String city) {
-        this.city = city;
+        City = city;
     }
 
     public String getArea() {
-        return area;
+        return Area;
     }
 
     public void setArea(String area) {
-        this.area = area;
+        Area = area;
     }
 
     public String getFloorspace() {
-        return floorspace;
+        return Floorspace;
     }
 
     public void setFloorspace(String floorspace) {
-        this.floorspace = floorspace;
+        Floorspace = floorspace;
     }
 
     public Integer getPrice() {
-        return price;
+        return Price;
     }
 
     public void setPrice(Integer price) {
-        this.price = price;
+        Price = price;
     }
 
     public List<Room> getRooms() {

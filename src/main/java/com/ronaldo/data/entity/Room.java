@@ -1,5 +1,7 @@
 package com.ronaldo.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -7,26 +9,28 @@ public class Room {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer RoomID;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "house_id", nullable = false)
+    @JoinColumn(name = "HouseID", nullable = false)
+    @JsonBackReference
     private House house;
 
     @Column(nullable = false)
-    private String type;
+    private String RoomType;
 
     @Column(nullable = false)
-    private String image;
+    private String RoomImage;
 
     // Getters and Setters
 
-    public Long getId() {
-        return id;
+
+    public Integer getRoomID() {
+        return RoomID;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setRoomID(Integer roomID) {
+        RoomID = roomID;
     }
 
     public House getHouse() {
@@ -37,19 +41,19 @@ public class Room {
         this.house = house;
     }
 
-    public String getType() {
-        return type;
+    public String getRoomType() {
+        return RoomType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setRoomType(String roomType) {
+        RoomType = roomType;
     }
 
-    public String getImage() {
-        return image;
+    public String getRoomImage() {
+        return RoomImage;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setRoomImage(String roomImage) {
+        RoomImage = roomImage;
     }
 }
